@@ -6,7 +6,7 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   const configService = app.get(ConfigService);
 
-  const fooValue = configService.get<string>('foo');
+  const fooValue = configService.get('foo');
   console.log('fooValue:', fooValue);
 
   await app.listen(3000);
