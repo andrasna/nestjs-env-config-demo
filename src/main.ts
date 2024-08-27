@@ -1,13 +1,12 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
-import { ConfigService } from '@nestjs/config';
+import { createEnvConfig } from 'config/create-env-config';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  const configService = app.get(ConfigService);
 
-  const fooValue = configService.get<string>('foo');
-  console.log('fooValue:', fooValue);
+  const { foo } = createEnvConfig();
+  console.log('fooValue:', foo);
 
   await app.listen(3000);
 }

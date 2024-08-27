@@ -5,6 +5,8 @@ const envSchema = z.object({
   bar: z.string(),
 });
 
+// type EnvType = z.infer<typeof envSchema>
+
 const createEnvConfig = () => {
   const env = {
     foo: process.env.FOO,
@@ -17,3 +19,4 @@ const createEnvConfig = () => {
 }
 
 export { createEnvConfig }
+// export type { EnvType }
